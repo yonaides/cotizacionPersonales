@@ -4,8 +4,8 @@ namespace CotizacionesPersonales.Models{
 
 public class ServicioDetalle
     {
-        public int IdServicioDetalle { get; set; }
-        public Servicio IdServicio { get; set; }
+        public int ServicioDetalleID { get; set; }
+        public Servicio ServicioId { get; set; }
         public string DescripcionDetalleServicio { get; set; }
         
     }

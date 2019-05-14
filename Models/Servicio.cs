@@ -4,7 +4,7 @@ namespace CotizacionesPersonales.Models{
 
 public class Servicio
     {
-        public int IdServicio { get; set; }
+        public int ServicioID { get; set; }
         public string NombreServicio { get; set; }
         public string DescripcionServicio { get; set; }
         public decimal PrecioServicio { get; set; }

@@ -7,10 +7,10 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("CotizacionesPersonales")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("cotizacionesPersonales")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("CotizacionesPersonales")]
-[assembly: System.Reflection.AssemblyTitleAttribute("CotizacionesPersonales")]
+[assembly: System.Reflection.AssemblyProductAttribute("cotizacionesPersonales")]
+[assembly: System.Reflection.AssemblyTitleAttribute("cotizacionesPersonales")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

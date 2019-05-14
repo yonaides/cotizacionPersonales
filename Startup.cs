@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using CotizacionesPersonales.Data;
 
 namespace CotizacionesPersonales
 {
@@ -33,6 +35,10 @@ namespace CotizacionesPersonales
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            var connection = @"Server=(localdb)\mssqllocaldb;Database=contizacionPersonal;Trusted_Connection=True;ConnectRetryCount=0";
+            services.AddDbContext<CotizacionesContext>( options => options.UseSqlServer(connection));
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

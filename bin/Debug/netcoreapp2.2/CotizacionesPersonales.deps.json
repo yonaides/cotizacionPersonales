@@ -22,7 +22,7 @@
   },
   "targets": {
     ".NETCoreApp,Version=v2.2": {
-      "CotizacionesPersonales/1.0.0": {
+      "cotizacionesPersonales/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.App": "2.2.0",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
@@ -32,10 +32,10 @@
           "Microsoft.NETCore.App": "2.2.0"
         },
         "runtime": {
-          "CotizacionesPersonales.dll": {}
+          "cotizacionesPersonales.dll": {}
         },
         "compile": {
-          "CotizacionesPersonales.dll": {}
+          "cotizacionesPersonales.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -3235,7 +3235,7 @@
     }
   },
   "libraries": {
-    "CotizacionesPersonales/1.0.0": {
+    "cotizacionesPersonales/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
