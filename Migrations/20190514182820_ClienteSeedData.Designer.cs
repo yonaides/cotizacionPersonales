@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace cotizacionesPersonales.Migrations
 {
     [DbContext(typeof(CotizacionesContext))]
-    [Migration("20190514164655_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20190514182820_ClienteSeedData")]
+    partial class ClienteSeedData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,6 +38,15 @@ namespace cotizacionesPersonales.Migrations
                     b.HasKey("ClienteID");
 
                     b.ToTable("clientes");
+
+                    b.HasData(
+                        new
+                        {
+                            ClienteID = 1,
+                            DireccionCliente = "Santiago de los Caballeros",
+                            EmailCliente = "yonaides@gmail.com",
+                            NombreCliente = "Yonaides Tavares"
+                        });
                 });
 
             modelBuilder.Entity("CotizacionesPersonales.Models.Cotizacion", b =>
@@ -56,7 +65,7 @@ namespace cotizacionesPersonales.Migrations
 
                     b.HasIndex("ClienteID");
 
-                    b.ToTable("Cotizacion");
+                    b.ToTable("cotizacion");
                 });
 
             modelBuilder.Entity("CotizacionesPersonales.Models.CotizacionDetalle", b =>
@@ -71,7 +80,9 @@ namespace cotizacionesPersonales.Migrations
 
                     b.Property<int?>("IdClienteClienteID");
 
-                    b.Property<decimal>("MontoTotal");
+                    b.Property<int?>("IdServicioServicioID");
+
+                    b.Property<decimal>("precioServicio");
 
                     b.HasKey("CotizacionDetalleID");
 
@@ -79,7 +90,43 @@ namespace cotizacionesPersonales.Migrations
 
                     b.HasIndex("IdClienteClienteID");
 
-                    b.ToTable("CotizacionDetalle");
+                    b.HasIndex("IdServicioServicioID");
+
+                    b.ToTable("cotizacionDetalle");
+                });
+
+            modelBuilder.Entity("CotizacionesPersonales.Models.Servicio", b =>
+                {
+                    b.Property<int>("ServicioID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("DescripcionServicio");
+
+                    b.Property<string>("NombreServicio");
+
+                    b.Property<decimal>("PrecioServicio");
+
+                    b.HasKey("ServicioID");
+
+                    b.ToTable("servicio");
+                });
+
+            modelBuilder.Entity("CotizacionesPersonales.Models.ServicioDetalle", b =>
+                {
+                    b.Property<int>("ServicioDetalleID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("DescripcionDetalleServicio");
+
+                    b.Property<int?>("ServicioID");
+
+                    b.HasKey("ServicioDetalleID");
+
+                    b.HasIndex("ServicioID");
+
+                    b.ToTable("servicioDetalle");
                 });
 
             modelBuilder.Entity("CotizacionesPersonales.Models.Cotizacion", b =>
@@ -98,6 +145,17 @@ namespace cotizacionesPersonales.Migrations
                     b.HasOne("CotizacionesPersonales.Models.Cliente", "IdCliente")
                         .WithMany()
                         .HasForeignKey("IdClienteClienteID");
+
+                    b.HasOne("CotizacionesPersonales.Models.Servicio", "IdServicio")
+                        .WithMany()
+                        .HasForeignKey("IdServicioServicioID");
+                });
+
+            modelBuilder.Entity("CotizacionesPersonales.Models.ServicioDetalle", b =>
+                {
+                    b.HasOne("CotizacionesPersonales.Models.Servicio", "ServicioId")
+                        .WithMany("ServicioDetalle")
+                        .HasForeignKey("ServicioID");
                 });
 #pragma warning restore 612, 618
         }
