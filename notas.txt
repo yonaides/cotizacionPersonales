@@ -1,0 +1,5 @@
+CotizacionesPalmaDesign
+(localdb)\MSSQLLocalDB
+enter
+integri
+enter
