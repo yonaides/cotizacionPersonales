@@ -12081,11 +12081,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\WorkSpace\\vcode\\PalmaDesign\\CotizacionesPersonales\\CotizacionesPersonales.csproj",
+      "projectUniqueName": "d:\\WorkSpace\\vcode\\PalmaDesign\\cotizacionPersonales\\CotizacionesPersonales.csproj",
       "projectName": "CotizacionesPersonales",
-      "projectPath": "D:\\WorkSpace\\vcode\\PalmaDesign\\CotizacionesPersonales\\CotizacionesPersonales.csproj",
+      "projectPath": "d:\\WorkSpace\\vcode\\PalmaDesign\\cotizacionPersonales\\CotizacionesPersonales.csproj",
       "packagesPath": "C:\\Users\\yonai\\.nuget\\packages\\",
-      "outputPath": "D:\\WorkSpace\\vcode\\PalmaDesign\\CotizacionesPersonales\\obj\\",
+      "outputPath": "d:\\WorkSpace\\vcode\\PalmaDesign\\cotizacionPersonales\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
