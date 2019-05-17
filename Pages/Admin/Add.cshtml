@@ -1,5 +1,5 @@
 @page
-@modal CotizacionesPersonales.Pages.AddPageModel
+@model CotizacionesPersonales.Pages.AddPageModel
 
 @{
     ViewData["Title"] = "Agregar cliente";
@@ -8,6 +8,7 @@
 <h3> Add Cliente </h3>
 
 <form method="post">
+
     <label asp-for="AIM.NombreCliente"></label>
     <input asp-for="AIM.NombreCliente"/>
     <span  asp-validation-for="AIM.NombreCliente"></span>

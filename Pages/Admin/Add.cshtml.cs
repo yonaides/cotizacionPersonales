@@ -15,7 +15,6 @@ namespace CotizacionesPersonales.Pages
 
         [BindProperty]
         public AddItemModel AIM { get; set; }
-
         public IActionResult OnPost()
         {
 
@@ -33,13 +32,11 @@ namespace CotizacionesPersonales.Pages
             };
 
             _context.Clientes.Add(cliente);
-
+            _context.SaveChanges();
 
             return RedirectToPage("Index");
 
-
         }
-
 
     }
 
