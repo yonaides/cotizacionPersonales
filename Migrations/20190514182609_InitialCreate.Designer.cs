@@ -43,6 +43,7 @@ namespace cotizacionesPersonales.Migrations
                         new
                         {
                             ClienteID = 1,
+                            TelefonoCliente = "829-883-6835",
                             DireccionCliente = "Santiago de los Caballeros",
                             EmailCliente = "yonaides@gmail.com",
                             NombreCliente = "Yonaides Tavares"

@@ -1,0 +1,27 @@
+@page
+@model CotizacionesPersonales.Pages.IndexModel
+
+@{
+    ViewData["Title"] = "Admin Home";
+}
+
+<h3>DashBoard</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nombre </th>
+            <th>telefono </th>
+            <th>Direccion </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cliente in Model.Clientes ){
+            <tr>
+                <td>@cliente.NombreCliente</td>
+                <td>@cliente.TelefonoCliente</td>
+                <td>@cliente.DireccionCliente</td>
+            </tr>
+        }
+    </tbody>
+</table>

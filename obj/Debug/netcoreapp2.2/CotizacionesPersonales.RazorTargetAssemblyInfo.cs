@@ -9,10 +9,10 @@ using System.Reflection;
 
 [assembly: Microsoft.AspNetCore.Mvc.ApplicationParts.ProvideApplicationPartFactoryAttribute("Microsoft.AspNetCore.Mvc.ApplicationParts.CompiledRazorAssemblyApplicationPartFac" +
 "tory, Microsoft.AspNetCore.Mvc.Razor")]
-[assembly: System.Reflection.AssemblyCompanyAttribute("cotizacionesPersonales")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("CotizacionesPersonales")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
-[assembly: System.Reflection.AssemblyProductAttribute("cotizacionesPersonales")]
+[assembly: System.Reflection.AssemblyProductAttribute("CotizacionesPersonales")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyTitleAttribute("cotizacionesPersonales.Views")]
+[assembly: System.Reflection.AssemblyTitleAttribute("CotizacionesPersonales.Views")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
