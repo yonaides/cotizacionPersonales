@@ -14,22 +14,27 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #line 1 "d:\WorkSpace\vcode\PalmaDesign\cotizacionPersonales\Pages\_ViewImports.cshtml"
-using CotizacionesPersonales;
+using System.Globalization;
 
 #line default
 #line hidden
 #line 2 "d:\WorkSpace\vcode\PalmaDesign\cotizacionPersonales\Pages\_ViewImports.cshtml"
-using CotizacionesPersonales.Data;
+using CotizacionesPersonales;
 
 #line default
 #line hidden
 #line 3 "d:\WorkSpace\vcode\PalmaDesign\cotizacionPersonales\Pages\_ViewImports.cshtml"
+using CotizacionesPersonales.Data;
+
+#line default
+#line hidden
+#line 4 "d:\WorkSpace\vcode\PalmaDesign\cotizacionPersonales\Pages\_ViewImports.cshtml"
 using CotizacionesPersonales.Models;
 
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5c05831fc344a09d2edcd9b7ea64465dcbd15998", @"/Pages/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"11a4c1a777a7863951afba8a22ead425e0af8b0a", @"/Pages/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e5bcec85789e11e89a04a0a6cf64c7d8a459fe38", @"/Pages/_ViewImports.cshtml")]
     public class Pages__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

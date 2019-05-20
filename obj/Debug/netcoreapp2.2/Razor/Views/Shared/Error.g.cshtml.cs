@@ -14,17 +14,22 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #line 1 "d:\WorkSpace\vcode\PalmaDesign\cotizacionPersonales\Views\_ViewImports.cshtml"
-using CotizacionesPersonales;
+using System.Globalization;
 
 #line default
 #line hidden
 #line 2 "d:\WorkSpace\vcode\PalmaDesign\cotizacionPersonales\Views\_ViewImports.cshtml"
+using CotizacionesPersonales;
+
+#line default
+#line hidden
+#line 3 "d:\WorkSpace\vcode\PalmaDesign\cotizacionPersonales\Views\_ViewImports.cshtml"
 using CotizacionesPersonales.Models;
 
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d6a5625cc8fb4476f348b0fe9041c550465d8bf9", @"/Views/Shared/Error.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d6278f7d126139492d2757f6c0bb16d5845c5ad8", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b7ef589225b99827c6601d39a47d6313d0cc5b08", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Error : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ErrorViewModel>
     {
         #pragma warning disable 1998

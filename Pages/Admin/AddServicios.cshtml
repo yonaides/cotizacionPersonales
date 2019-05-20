@@ -1,0 +1,26 @@
+@page
+@model CotizacionesPersonales.Pages.AddServicioPageModel
+@{
+    ViewData["Titulo"] = "Agregar Sercivios";
+}
+
+<h3>Agregar Servicios</h3>
+<form method="post">
+    <label asp-for="Servicio.NombreServicio">Servicio</label>
+    <input asp-for="Servicio.NombreServicio"/>
+    <span asp-validation-for="Servicio.NombreServicio"></span>
+    <br/>
+    
+    <label asp-for="Servicio.DescripcionServicio">Descripción</label>
+    <input asp-for="Servicio.DescripcionServicio"/>
+    <span asp-validation-for="Servicio.DescripcionServicio"></span>
+    <br/>
+
+    <label asp-for="Servicio.PrecioServicio">Precio</label>
+    <input asp-for="Servicio.PrecioServicio"/>
+    <span asp-validation-for="Servicio.PrecioServicio"></span>
+    <br/>
+
+    <input type="submit" value="Salvar"/>
+
+</form>

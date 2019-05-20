@@ -8,15 +8,17 @@
     <link rel="stylesheet" href="~/css/main.css">
 </head>
 <body>
-    <header><a href="/">cotizacionesPersonales</a><a href="#">Logout</a></header>
+    <header><a href="/">Cotizaciones Personales</a><a href="#">Logout</a></header>
     <div class="container">
         <nav>
             <ul>
-                <li><a class="nav-item" asp-page="/Admin/Index">Admin Home</a></li>
-                <li><a class="nav-item" asp-page="/Admin/Add">Add a Watch</a></li>
+                <li><a class="nav-item" asp-page="/Admin/Index">Dashboard</a></li>
+                <li><a class="nav-item" asp-page="/Admin/Add">Agregar Cliente</a></li>
+                <li><a class="nav-item" asp-page="/Admin/AddServicios">Agregar Servicios</a></li>
             </ul>
         </nav>
         <main>@RenderBody()</main>
     </div>
+    @RenderSection("Scripts", false);
 </body>
 </html>
