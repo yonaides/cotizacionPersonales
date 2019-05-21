@@ -11,6 +11,7 @@
     <caption>@Model.Servicio.NombreServicio</caption>
     <thead>
         <tr>
+            <th>ID Detalle Servicio </th>
             <th>Descripcion </th>
             <th></th>
         </tr>
@@ -19,8 +20,11 @@
     @foreach (var servicioDetalles in Model.ServicioDetalle)
     {
         <tr>
+            <td> @servicioDetalles.ServicioDetalleID </td>
             <td> @servicioDetalles.DescripcionDetalleServicio </td>
-            <td> <a asp-page="@servicioDetalles.ServicioDetalleID" asp-router-id="" > Editar </a>  </td>
+            <td> <a asp-page = "/Admin/AddDetalleServicios"
+            asp-route-id = "@servicioDetalles.ServicioDetalleID" > Editar </a> 
+             </td>
         </tr>
     }
     </tbody>

@@ -7,11 +7,16 @@
 <h3> Agregar Detalle Servicios </h3>
 
 <form method="post">
-    <select name="servicioID" asp-items="Model.servicios" asp-for="servicioID" >
-        <option value="">Seleccione un servicio</option>
-    </select>
-    <br/>
 
+    <select name="ServicioID" asp-items="Model.Servicios">
+        @{
+            if (@Model.servicioID == null){
+                <option value = "">Seleccione un servicio</option>
+            }
+        }
+    </select>
+    
+    <br/>
     <label asp-for="ServicioDetalle.DescripcionDetalleServicio">Descripción</label>
     <input asp-for="ServicioDetalle.DescripcionDetalleServicio"/>
     <span asp-validation-for="ServicioDetalle.DescripcionDetalleServicio"></span>

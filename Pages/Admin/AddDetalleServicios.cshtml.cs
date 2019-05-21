@@ -3,44 +3,57 @@ using Microsoft.AspNetCore.Mvc;
 using CotizacionesPersonales.Data;
 using CotizacionesPersonales.Models;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 
 namespace CotizacionesPersonales.Pages
 {
-
     public class AddServicioDetallePageModel : PageModel
     {
         private CotizacionesContext _context;
-        public List<SelectListItem> servicios { get; set; }
-
+        
         public AddServicioDetallePageModel(CotizacionesContext context)
         {
             _context = context;
-            servicios = _context.Servicio.Select(a =>
-                                  new SelectListItem
-                                  {
-                                      Value = a.ServicioID.ToString(),
-                                      Text = a.NombreServicio
-                                  }).ToList();
-
         }
-
-        public void OnGet()
+         public void OnGet(int? id)
         {
+             if (id != null)
+            {
+                ServicioDetalle = _context.ServicioDetalle.Include(a => a.ServicioId).FirstOrDefault(x => x.ServicioDetalleID == id);
+                servicioID = ServicioDetalle.ServicioId.ServicioID.ToString();
+                Servicios = _context.Servicio.Where(x => x.ServicioID == ServicioDetalle.ServicioId.ServicioID).
+                                                Select(a =>
+                                                  new SelectListItem
+                                                  {
+                                                      Value = a.ServicioID.ToString(),
+                                                      Text = a.NombreServicio
+                                                  })
+                                                  .ToList();
 
+            }else {
+                Servicios = _context.Servicio.Select(a =>
+                                                  new SelectListItem
+                                                  {
+                                                      Value = a.ServicioID.ToString(),
+                                                      Text = a.NombreServicio
+                                                  }).ToList();
+
+            }
+            
         }
 
+        public List<SelectListItem> Servicios { get; set; }
 
         [BindProperty]
         public string servicioID { get; set; }
-
         [BindProperty]
         public ServicioDetalle ServicioDetalle { get; set; }
+
         public IActionResult OnPost()
         {
-
             if (!ModelState.IsValid)
             {
                 return Page();
@@ -60,8 +73,5 @@ namespace CotizacionesPersonales.Pages
             return RedirectToPage("Index");
 
         }
-
     }
-
-
 }

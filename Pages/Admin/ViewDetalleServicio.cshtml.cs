@@ -25,12 +25,13 @@ namespace CotizacionesPersonales.Pages
 
         public IEnumerable<ServicioDetalle> ServicioDetalle { get; set; }
 
-        public void OnGet(int id)
+        public void OnGet(int? id)
         {
-
-            Servicio = _context.Servicio.FirstOrDefault(x => x.ServicioID == id);
-            ServicioDetalle = _context.ServicioDetalle.Where(x => x.ServicioId.ServicioID == id);
-
+            if (id != null)
+            {
+                Servicio = _context.Servicio.FirstOrDefault(x => x.ServicioID == id);
+                ServicioDetalle = _context.ServicioDetalle.Where(x => x.ServicioId.ServicioID == id);
+            }
         }
 
     }
