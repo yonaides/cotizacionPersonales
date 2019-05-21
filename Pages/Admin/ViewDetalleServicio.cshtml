@@ -1,0 +1,25 @@
+@page
+@model CotizacionesPersonales.Pages.ViewServicioDetallePageModel
+
+@{
+    ViewData["Title"] = "Detalle de Servicios";
+}
+
+<h3> Detalle servicio </h3>
+
+<table>
+    <caption>@Model.Servicio.NombreServicio</caption>
+    <thead>
+        <tr>
+            <th>Descripcion </th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var servicioDetalles in Model.ServicioDetalle)
+    {
+        <tr>
+            <td> @servicioDetalles.DescripcionDetalleServicio </td>
+        </tr>
+    }
+    </tbody>
+</table>

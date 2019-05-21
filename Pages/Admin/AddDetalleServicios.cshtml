@@ -1,0 +1,22 @@
+@page
+@model CotizacionesPersonales.Pages.AddServicioDetallePageModel
+@{
+    ViewData["Title"] = "Agregar Detalle Servicios";
+}
+
+<h3> Agregar Detalle Servicios </h3>
+
+<form method="post">
+    <select name="servicioID" asp-items="Model.servicios" asp-for="servicioID" >
+        <option value="">Seleccione un servicio</option>
+    </select>
+    <br/>
+
+    <label asp-for="ServicioDetalle.DescripcionDetalleServicio">Descripción</label>
+    <input asp-for="ServicioDetalle.DescripcionDetalleServicio"/>
+    <span asp-validation-for="ServicioDetalle.DescripcionDetalleServicio"></span>
+    <br/>
+    
+    <input type="submit" value="Salvar"/>
+    
+</form>
