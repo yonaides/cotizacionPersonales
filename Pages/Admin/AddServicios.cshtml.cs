@@ -29,25 +29,29 @@ namespace CotizacionesPersonales.Pages
         {
             if (ModelState.IsValid)
             {
-                var servicioInDbo = _context.Servicio.FirstOrDefault(x => x.ServicioID == id);
-                servicioInDbo.NombreServicio = Servicio.NombreServicio;
-                servicioInDbo.PrecioServicio = Servicio.PrecioServicio;
-                servicioInDbo.DescripcionServicio = Servicio.DescripcionServicio;
-
-                _context.SaveChanges();
-            }
-            else
-            {
-                var servicio = new Servicio
+                if (id != null)
                 {
-                    NombreServicio = Servicio.NombreServicio,
-                    DescripcionServicio = Servicio.DescripcionServicio,
-                    PrecioServicio = Servicio.PrecioServicio
+                    var servicioInDbo = _context.Servicio.FirstOrDefault(x => x.ServicioID == id);
+                    servicioInDbo.NombreServicio = Servicio.NombreServicio;
+                    servicioInDbo.PrecioServicio = Servicio.PrecioServicio;
+                    servicioInDbo.DescripcionServicio = Servicio.DescripcionServicio;
 
-                };
-                _context.Servicio.Add(servicio);
-                _context.SaveChanges();
+                    _context.SaveChanges();
+                }
+                else
+                {
+                    var servicio = new Servicio
+                    {
+                        NombreServicio = Servicio.NombreServicio,
+                        DescripcionServicio = Servicio.DescripcionServicio,
+                        PrecioServicio = Servicio.PrecioServicio
+
+                    };
+                    _context.Servicio.Add(servicio);
+                    _context.SaveChanges();
+                }
             }
+
 
             return RedirectToPage("Index");
 
