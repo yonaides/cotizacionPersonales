@@ -7,27 +7,34 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 
-namespace CotizacionesPersonales.Pages{
+namespace CotizacionesPersonales.Pages
+{
 
-   public class AddServicioDetallePageModel : PageModel
+    public class AddServicioDetallePageModel : PageModel
     {
         private CotizacionesContext _context;
+        public List<SelectListItem> servicios { get; set; }
+
         public AddServicioDetallePageModel(CotizacionesContext context)
         {
             _context = context;
-            servicios = _context.Servicio.Select(a => 
-                                  new SelectListItem 
+            servicios = _context.Servicio.Select(a =>
+                                  new SelectListItem
                                   {
                                       Value = a.ServicioID.ToString(),
-                                      Text =  a.NombreServicio
+                                      Text = a.NombreServicio
                                   }).ToList();
 
         }
 
-        public List<SelectListItem> servicios { get; set; }
+        public void OnGet()
+        {
+
+        }
+
 
         [BindProperty]
-        public string servicioID {get; set;}
+        public string servicioID { get; set; }
 
         [BindProperty]
         public ServicioDetalle ServicioDetalle { get; set; }
@@ -42,9 +49,9 @@ namespace CotizacionesPersonales.Pages{
             var servicioDetalle = new ServicioDetalle
             {
 
-                ServicioId = _context.Servicio.FirstOrDefault(x => x.ServicioID == Convert.ToInt32(servicioID) ),
-                DescripcionDetalleServicio =  ServicioDetalle.DescripcionDetalleServicio
-        
+                ServicioId = _context.Servicio.FirstOrDefault(x => x.ServicioID == Convert.ToInt32(servicioID)),
+                DescripcionDetalleServicio = ServicioDetalle.DescripcionDetalleServicio
+
             };
 
             _context.ServicioDetalle.Add(servicioDetalle);

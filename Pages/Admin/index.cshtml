@@ -39,6 +39,7 @@
             <th>Servicio</th>
             <th>Descripcion </th>
             <th>Precio </th>
+            <th>Editar </th>
             <th>Detalle </th>
         </tr>
     </thead>
@@ -48,7 +49,8 @@
                 <td>@servicio.NombreServicio </td>
                 <td>@servicio.DescripcionServicio </td>
                 <td>@servicio.PrecioServicio.ToString("C", CultureInfo.CreateSpecificCulture("en-US")) </td>
-                <td> <a asp-page="/Admin/ViewDetalleServicio" asp-route-id ="@servicio.ServicioID">Ver</a>  </td>
+                <td> <a asp-page="/Admin/AddServicios" asp-route-id ="@servicio.ServicioID">Editar</a>  </td>
+                <td> <a asp-page="/Admin/ViewDetalleServicio" asp-route-id ="@servicio.ServicioID">Detalle</a>  </td>
             </tr>
         }
     </tbody>

@@ -61,7 +61,6 @@ D:\WorkSpace\vcode\PalmaDesign\cotizacionPersonales\obj\Debug\netcoreapp2.2\Coti
 d:\WorkSpace\vcode\PalmaDesign\cotizacionPersonales\obj\Debug\netcoreapp2.2\Razor\Pages\Admin\index.g.cshtml.cs
 d:\WorkSpace\vcode\PalmaDesign\cotizacionPersonales\obj\Debug\netcoreapp2.2\Razor\Pages\Shared\_Layout.g.cshtml.cs
 d:\WorkSpace\vcode\PalmaDesign\cotizacionPersonales\obj\Debug\netcoreapp2.2\Razor\Pages\_ViewImports.g.cshtml.cs
-d:\WorkSpace\vcode\PalmaDesign\cotizacionPersonales\obj\Debug\netcoreapp2.2\Razor\Pages\Admin\Add.g.cshtml.cs
 d:\WorkSpace\vcode\PalmaDesign\cotizacionPersonales\obj\Debug\netcoreapp2.2\Razor\Pages\_ViewStart.g.cshtml.cs
 d:\WorkSpace\vcode\PalmaDesign\cotizacionPersonales\obj\Debug\netcoreapp2.2\Razor\Pages\Admin\AddServicios.g.cshtml.cs
 d:\WorkSpace\vcode\PalmaDesign\cotizacionPersonales\obj\Debug\netcoreapp2.2\Razor\Pages\Admin\AddDetalleServicios.g.cshtml.cs
