@@ -15,6 +15,7 @@
             <th>telefono </th>
             <th>Direccion </th>
             <th>Email </th>
+            <th> </th>
         </tr>
     </thead>
     <tbody>
@@ -24,17 +25,12 @@
                 <td>@cliente.TelefonoCliente</td>
                 <td>@cliente.DireccionCliente</td>
                 <td>@cliente.EmailCliente</td>
+                <td> <a asp-page="/Admin/AddClientes" asp-route-id ="@cliente.ClienteID">Editar</a>  </td>
             </tr>
         }
     </tbody>
 </table>
 <br />
-
-@*
-public string NombreServicio { get; set; }
-        public string DescripcionServicio { get; set; }
-        public decimal PrecioServicio { get; set; }
-*@
 
 <table>
     <caption>Servicios</caption>

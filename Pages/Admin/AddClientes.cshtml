@@ -1,0 +1,31 @@
+@page
+@model CotizacionesPersonales.Pages.AddClientePageModel
+@{
+    ViewData["Titulo"] = "Agregar Clientes";
+}
+
+<h3>Agregar Clientes</h3>
+<form method="post">
+    <label asp-for="Cliente.NombreCliente">Nombre</label>
+    <input asp-for="Cliente.NombreCliente"/>
+    <span  asp-validation-for="Cliente.NombreCliente"></span>
+    <br/>
+    
+    <label asp-for="Cliente.DireccionCliente">Dirección</label>
+    <input asp-for="Cliente.DireccionCliente"/>
+    <span  asp-validation-for="Cliente.DireccionCliente"></span>
+    <br/>
+
+    <label asp-for="Cliente.TelefonoCliente">Telefono</label>
+    <input asp-for="Cliente.TelefonoCliente"/>
+    <span  asp-validation-for="Cliente.TelefonoCliente"></span>
+    <br/>
+
+    <label asp-for="Cliente.EmailCliente">Email</label>
+    <input asp-for="Cliente.EmailCliente"/>
+    <span  asp-validation-for="Cliente.EmailCliente"></span>
+    <br/>
+
+    <input type="submit" value="Salvar"/>
+
+</form>

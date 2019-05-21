@@ -66,3 +66,4 @@ d:\WorkSpace\vcode\PalmaDesign\cotizacionPersonales\obj\Debug\netcoreapp2.2\Razo
 d:\WorkSpace\vcode\PalmaDesign\cotizacionPersonales\obj\Debug\netcoreapp2.2\Razor\Pages\Admin\AddServicios.g.cshtml.cs
 d:\WorkSpace\vcode\PalmaDesign\cotizacionPersonales\obj\Debug\netcoreapp2.2\Razor\Pages\Admin\AddDetalleServicios.g.cshtml.cs
 d:\WorkSpace\vcode\PalmaDesign\cotizacionPersonales\obj\Debug\netcoreapp2.2\Razor\Pages\Admin\ViewDetalleServicio.g.cshtml.cs
+d:\WorkSpace\vcode\PalmaDesign\cotizacionPersonales\obj\Debug\netcoreapp2.2\Razor\Pages\Admin\AddClientes.g.cshtml.cs
