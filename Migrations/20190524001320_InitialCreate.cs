@@ -9,38 +9,38 @@ namespace cotizacionesPersonales.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "clientes",
+                name: "Clientes",
                 columns: table => new
                 {
                     ClienteID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    NombreCliente = table.Column<string>(nullable: true),
+                    NombreCliente = table.Column<string>(nullable: false),
                     TelefonoCliente = table.Column<string>(nullable: true),
                     DireccionCliente = table.Column<string>(nullable: true),
-                    EmailCliente = table.Column<string>(nullable: true)
+                    EmailCliente = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_clientes", x => x.ClienteID);
+                    table.PrimaryKey("PK_Clientes", x => x.ClienteID);
                 });
 
             migrationBuilder.CreateTable(
-                name: "servicio",
+                name: "Servicio",
                 columns: table => new
                 {
                     ServicioID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    NombreServicio = table.Column<string>(nullable: true),
+                    NombreServicio = table.Column<string>(nullable: false),
                     DescripcionServicio = table.Column<string>(nullable: true),
                     PrecioServicio = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_servicio", x => x.ServicioID);
+                    table.PrimaryKey("PK_Servicio", x => x.ServicioID);
                 });
 
             migrationBuilder.CreateTable(
-                name: "cotizacion",
+                name: "Cotizacion",
                 columns: table => new
                 {
                     CotizacionID = table.Column<int>(nullable: false)
@@ -51,117 +51,105 @@ namespace cotizacionesPersonales.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_cotizacion", x => x.CotizacionID);
+                    table.PrimaryKey("PK_Cotizacion", x => x.CotizacionID);
                     table.ForeignKey(
-                        name: "FK_cotizacion_clientes_ClienteID",
+                        name: "FK_Cotizacion_Clientes_ClienteID",
                         column: x => x.ClienteID,
-                        principalTable: "clientes",
+                        principalTable: "Clientes",
                         principalColumn: "ClienteID",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "servicioDetalle",
+                name: "ServicioDetalle",
                 columns: table => new
                 {
                     ServicioDetalleID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ServicioID = table.Column<int>(nullable: true),
-                    DescripcionDetalleServicio = table.Column<string>(nullable: true)
+                    ServicioID = table.Column<int>(nullable: false),
+                    DescripcionDetalleServicio = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_servicioDetalle", x => x.ServicioDetalleID);
+                    table.PrimaryKey("PK_ServicioDetalle", x => x.ServicioDetalleID);
                     table.ForeignKey(
-                        name: "FK_servicioDetalle_servicio_ServicioID",
+                        name: "FK_ServicioDetalle_Servicio_ServicioID",
                         column: x => x.ServicioID,
-                        principalTable: "servicio",
+                        principalTable: "Servicio",
                         principalColumn: "ServicioID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "cotizacionDetalle",
+                name: "CotizacionDetalle",
                 columns: table => new
                 {
                     CotizacionDetalleID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    IdClienteClienteID = table.Column<int>(nullable: true),
-                    IdServicioServicioID = table.Column<int>(nullable: true),
+                    CotizacionID = table.Column<int>(nullable: false),
+                    ServicioID = table.Column<int>(nullable: false),
                     FechaCotizacion = table.Column<DateTime>(nullable: false),
-                    precioServicio = table.Column<decimal>(nullable: false),
-                    CotizacionID = table.Column<int>(nullable: true)
+                    precioServicio = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_cotizacionDetalle", x => x.CotizacionDetalleID);
+                    table.PrimaryKey("PK_CotizacionDetalle", x => x.CotizacionDetalleID);
                     table.ForeignKey(
-                        name: "FK_cotizacionDetalle_cotizacion_CotizacionID",
+                        name: "FK_CotizacionDetalle_Cotizacion_CotizacionID",
                         column: x => x.CotizacionID,
-                        principalTable: "cotizacion",
+                        principalTable: "Cotizacion",
                         principalColumn: "CotizacionID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_cotizacionDetalle_clientes_IdClienteClienteID",
-                        column: x => x.IdClienteClienteID,
-                        principalTable: "clientes",
-                        principalColumn: "ClienteID",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_cotizacionDetalle_servicio_IdServicioServicioID",
-                        column: x => x.IdServicioServicioID,
-                        principalTable: "servicio",
+                        name: "FK_CotizacionDetalle_Servicio_ServicioID",
+                        column: x => x.ServicioID,
+                        principalTable: "Servicio",
                         principalColumn: "ServicioID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
-                table: "clientes",
+                table: "Clientes",
                 columns: new[] { "ClienteID", "DireccionCliente", "EmailCliente", "NombreCliente", "TelefonoCliente" },
-                values: new object[] { 1, "Santiago de los Caballeros", "yonaides@gmail.com", "Yonaides Tavares", null });
+                values: new object[] { 1, "Santiago de los Caballeros", "yonaides@gmail.com", "Yonaides Tavares", "829-883-6835" });
 
             migrationBuilder.CreateIndex(
-                name: "IX_cotizacion_ClienteID",
-                table: "cotizacion",
+                name: "IX_Cotizacion_ClienteID",
+                table: "Cotizacion",
                 column: "ClienteID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_cotizacionDetalle_CotizacionID",
-                table: "cotizacionDetalle",
+                name: "IX_CotizacionDetalle_CotizacionID",
+                table: "CotizacionDetalle",
                 column: "CotizacionID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_cotizacionDetalle_IdClienteClienteID",
-                table: "cotizacionDetalle",
-                column: "IdClienteClienteID");
+                name: "IX_CotizacionDetalle_ServicioID",
+                table: "CotizacionDetalle",
+                column: "ServicioID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_cotizacionDetalle_IdServicioServicioID",
-                table: "cotizacionDetalle",
-                column: "IdServicioServicioID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_servicioDetalle_ServicioID",
-                table: "servicioDetalle",
+                name: "IX_ServicioDetalle_ServicioID",
+                table: "ServicioDetalle",
                 column: "ServicioID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "cotizacionDetalle");
+                name: "CotizacionDetalle");
 
             migrationBuilder.DropTable(
-                name: "servicioDetalle");
+                name: "ServicioDetalle");
 
             migrationBuilder.DropTable(
-                name: "cotizacion");
+                name: "Cotizacion");
 
             migrationBuilder.DropTable(
-                name: "servicio");
+                name: "Servicio");
 
             migrationBuilder.DropTable(
-                name: "clientes");
+                name: "Clientes");
         }
     }
 }

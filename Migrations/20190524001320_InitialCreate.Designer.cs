@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace cotizacionesPersonales.Migrations
 {
     [DbContext(typeof(CotizacionesContext))]
-    [Migration("20190514182820_ClienteSeedData")]
-    partial class ClienteSeedData
+    [Migration("20190524001320_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -29,15 +29,17 @@ namespace cotizacionesPersonales.Migrations
 
                     b.Property<string>("DireccionCliente");
 
-                    b.Property<string>("EmailCliente");
+                    b.Property<string>("EmailCliente")
+                        .IsRequired();
 
-                    b.Property<string>("NombreCliente");
+                    b.Property<string>("NombreCliente")
+                        .IsRequired();
 
                     b.Property<string>("TelefonoCliente");
 
                     b.HasKey("ClienteID");
 
-                    b.ToTable("clientes");
+                    b.ToTable("Clientes");
 
                     b.HasData(
                         new
@@ -45,7 +47,8 @@ namespace cotizacionesPersonales.Migrations
                             ClienteID = 1,
                             DireccionCliente = "Santiago de los Caballeros",
                             EmailCliente = "yonaides@gmail.com",
-                            NombreCliente = "Yonaides Tavares"
+                            NombreCliente = "Yonaides Tavares",
+                            TelefonoCliente = "829-883-6835"
                         });
                 });
 
@@ -65,7 +68,7 @@ namespace cotizacionesPersonales.Migrations
 
                     b.HasIndex("ClienteID");
 
-                    b.ToTable("cotizacion");
+                    b.ToTable("Cotizacion");
                 });
 
             modelBuilder.Entity("CotizacionesPersonales.Models.CotizacionDetalle", b =>
@@ -74,13 +77,11 @@ namespace cotizacionesPersonales.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CotizacionID");
+                    b.Property<int>("CotizacionID");
 
                     b.Property<DateTime>("FechaCotizacion");
 
-                    b.Property<int?>("IdClienteClienteID");
-
-                    b.Property<int?>("IdServicioServicioID");
+                    b.Property<int>("ServicioID");
 
                     b.Property<decimal>("precioServicio");
 
@@ -88,11 +89,9 @@ namespace cotizacionesPersonales.Migrations
 
                     b.HasIndex("CotizacionID");
 
-                    b.HasIndex("IdClienteClienteID");
+                    b.HasIndex("ServicioID");
 
-                    b.HasIndex("IdServicioServicioID");
-
-                    b.ToTable("cotizacionDetalle");
+                    b.ToTable("CotizacionDetalle");
                 });
 
             modelBuilder.Entity("CotizacionesPersonales.Models.Servicio", b =>
@@ -103,13 +102,14 @@ namespace cotizacionesPersonales.Migrations
 
                     b.Property<string>("DescripcionServicio");
 
-                    b.Property<string>("NombreServicio");
+                    b.Property<string>("NombreServicio")
+                        .IsRequired();
 
                     b.Property<decimal>("PrecioServicio");
 
                     b.HasKey("ServicioID");
 
-                    b.ToTable("servicio");
+                    b.ToTable("Servicio");
                 });
 
             modelBuilder.Entity("CotizacionesPersonales.Models.ServicioDetalle", b =>
@@ -118,15 +118,16 @@ namespace cotizacionesPersonales.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("DescripcionDetalleServicio");
+                    b.Property<string>("DescripcionDetalleServicio")
+                        .IsRequired();
 
-                    b.Property<int?>("ServicioID");
+                    b.Property<int>("ServicioID");
 
                     b.HasKey("ServicioDetalleID");
 
                     b.HasIndex("ServicioID");
 
-                    b.ToTable("servicioDetalle");
+                    b.ToTable("ServicioDetalle");
                 });
 
             modelBuilder.Entity("CotizacionesPersonales.Models.Cotizacion", b =>
@@ -138,24 +139,23 @@ namespace cotizacionesPersonales.Migrations
 
             modelBuilder.Entity("CotizacionesPersonales.Models.CotizacionDetalle", b =>
                 {
-                    b.HasOne("CotizacionesPersonales.Models.Cotizacion")
+                    b.HasOne("CotizacionesPersonales.Models.Cotizacion", "CotizacionId")
                         .WithMany("CotizacionDetalle")
-                        .HasForeignKey("CotizacionID");
+                        .HasForeignKey("CotizacionID")
+                        .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("CotizacionesPersonales.Models.Cliente", "IdCliente")
+                    b.HasOne("CotizacionesPersonales.Models.Servicio", "ServicioId")
                         .WithMany()
-                        .HasForeignKey("IdClienteClienteID");
-
-                    b.HasOne("CotizacionesPersonales.Models.Servicio", "IdServicio")
-                        .WithMany()
-                        .HasForeignKey("IdServicioServicioID");
+                        .HasForeignKey("ServicioID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("CotizacionesPersonales.Models.ServicioDetalle", b =>
                 {
                     b.HasOne("CotizacionesPersonales.Models.Servicio", "ServicioId")
                         .WithMany("ServicioDetalle")
-                        .HasForeignKey("ServicioID");
+                        .HasForeignKey("ServicioID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
