@@ -10,9 +10,7 @@ namespace CotizacionesPersonales.Data
         }
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Cotizacion> Cotizacion { get; set; }
-
         public DbSet<CotizacionDetalle> CotizacionDetalle { get; set; }
-
         public DbSet<Servicio> Servicio { get; set; }
         public DbSet<ServicioDetalle> ServicioDetalle { get; set; }
 
